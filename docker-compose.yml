@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  db:
+    image: postgres:15
+    # берём готовый образ PostgreSQL
+    environment:
+      POSTGRES_DB: todo_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+      # настройки базы данных
+    ports:
+      - "5432:5432"
+      # открываем порт базы данных
+
+  app:
+    build: .
+    # собираем образ из нашего Dockerfile
+    ports:
+      - "8080:8080"
+      # открываем порт приложения
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/todo_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: admin
+      # настройки подключения к базе
+    depends_on:
+      - db
+      # сначала запускаем базу, потом приложение
