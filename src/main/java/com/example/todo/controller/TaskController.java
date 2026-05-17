@@ -82,7 +82,7 @@ public Task getTaskbyId(@PathVariable Long id){
     @DeleteMapping("/{id}")
     // 👉 DELETE запрос → удалить задачу
     // 👉 URL: DELETE /tasks/5
-
+@ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteTask(@PathVariable Long id){
         // 👉 @PathVariable берёт id из URL (например /tasks/5 → id = 5)
 
