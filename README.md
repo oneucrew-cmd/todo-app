@@ -36,3 +36,7 @@ POST /tasks
 "description": "Молоко, хлеб",
 "completed": false
 }
+
+## Тестирование
+
+API можно тестировать через [Postman](https://www.postman.com/)
