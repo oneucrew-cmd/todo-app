@@ -8,7 +8,16 @@ REST-сервис для управления задачами на Spring Boot 
 - PostgreSQL
 - Docker
 
+## Клонирование проекта
+
+```bash
+git clone https://github.com/oneucrew-cmd/todo-app.git
+cd todo-app
+```
+
 ## Запуск через Docker
+
+Перед запуском убедитесь, что Docker Desktop установлен и запущен.
 
 ```bash
 mvnw.cmd clean package -DskipTests
@@ -31,11 +40,13 @@ docker-compose up --build
 ## Пример запроса
 
 POST /tasks
+```json
 {
-"title": "Купить продукты",
-"description": "Молоко, хлеб",
-"completed": false
+  "title": "Купить продукты",
+  "description": "Молоко, хлеб",
+  "completed": false
 }
+```
 
 ## Тестирование
 
